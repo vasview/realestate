@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_19_180312) do
+ActiveRecord::Schema.define(version: 2022_01_19_181221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,23 @@ ActiveRecord::Schema.define(version: 2022_01_19_180312) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "real_estates", force: :cascade do |t|
+    t.string "title"
+    t.integer "real_estate_type"
+    t.bigint "city_id"
+    t.string "address"
+    t.integer "number_of_rooms"
+    t.integer "number_of_levels"
+    t.integer "property_level"
+    t.decimal "requested_price", precision: 18, scale: 2
+    t.integer "wall_material"
+    t.string "description"
+    t.boolean "personal_data_processing"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_real_estates_on_city_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,4 +60,5 @@ ActiveRecord::Schema.define(version: 2022_01_19_180312) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "real_estates", "cities"
 end
