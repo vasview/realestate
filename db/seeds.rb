@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+CITIES = ['London', 'Moscow', 'Bishkek', 'Almata', 'Osh', 'Berlin', 'Paris']
+
+if City.all.count.zero?
+  CITIES.each do |city|
+    City.create(name: city)
+  end
+end
