@@ -8,6 +8,8 @@ class CreateRealEstates < ActiveRecord::Migration[7.0]
       t.integer :number_of_rooms
       t.integer :number_of_levels
       t.integer :property_level
+      t.decimal :area, precision: 7, scale: 2
+      t.date :construction_year
       t.decimal :requested_price, precision: 18, scale: 2
       t.integer :wall_material
       t.string :description

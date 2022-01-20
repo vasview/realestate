@@ -1,0 +1,21 @@
+<div class="result_items">
+  <% @real_estates.each do |rs| %>
+    <div class="result_item_wrapper">
+      <div class="result_realestate">
+        <div class="result_item_image"><%= image_tag rs.header_image.variant(resize_to_fit: [100, 100]) %></div>
+        <div class="result_item_desc">
+          <h2><%= rs.real_estate_type %></h2>
+          <p><%= rs.title %></p>
+        </div>
+      </div>
+      <div class="result_item_city"><%= rs&.city&.name %></div>
+      <div class="result_item_level_wrapper">
+        <div class="result_item_level"><span><%= rs.property_level %>/<%= rs.number_of_levels %></span></div>
+      </div>
+      <div class="result_item_area"><span><%= rs.area %></span></div>
+      <div class="result_item_number_rooms"><%= rs.number_of_rooms %></div>
+      <div class="result_item_price"><span><%= rs.requested_price %></span></div>
+      <div class="result_item_action"><%= link_to 'Показать', real_estate_path(rs.id), class: "btn_big_green" %></div>
+    </div>
+  <% end %>
+</div>

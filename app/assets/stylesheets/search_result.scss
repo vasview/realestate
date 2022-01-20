@@ -17,7 +17,7 @@
 
 .result_city {
   width: 15%;
-  display: inline-block;  
+  display: inline-block;
 }
 
 .result_level {
@@ -174,7 +174,7 @@
   background: red;
   border: 2px solid #414141;
   border-radius: 5px;
-  text-align: center; 
+  text-align: center;
   text-transform: capitalize;
   font-size: 15px;
   overflow: hidden;
@@ -237,7 +237,7 @@ table {
   background: #F8F8F8;
   border: 2px solid #414141;
   border-radius: 5px;
-  text-align: center; 
+  text-align: center;
   text-transform: capitalize;
   font-size: 15px;
   overflow: hidden;
@@ -266,13 +266,15 @@ table {
   background: #79B260;
   border: 2px solid #414141;
   border-radius: 5px;
-  text-align: left; 
+  text-align: left;
   text-transform: capitalize;
-  font-size: 15px;
+  font-size: 18px;
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
   margin-right: 5%;
+  padding-top: 5px;
+  padding-left: 5px;
 }
 
 .btn_big_green:active {
@@ -287,12 +289,12 @@ table {
   top: 2px;
   left: 70%;
   content: " ";
-  background-image: url('../images/arrow-right-short.svg');
+  background-image: url('arrow-right-short.svg');
   background-color: #46A049;
   background-size: 16px 16px;
   background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; 
+    background-size: cover;
   margin-left: 8px;
   width: 20px;
   height: 20px;

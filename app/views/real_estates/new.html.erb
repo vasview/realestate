@@ -1,0 +1,11 @@
+<div class="house_form_wrapper">
+    <h4 class="house_form_title">Форма добавления данных по объекту</h4>
+    <p class="house_form_subtitle">Для добавления объекта заполните поля формы.</p>
+    <p class="house_form_subtitle house_form_warning">*Все поля, кроме допольнительной информации, обязательны для заполнения.</p>
+    <%= render "form", real_estate: @real_estate %>
+  </div>
+</div>
+
+<div>
+  <%= link_to "Back to real estates", real_estates_path %>
+</div>

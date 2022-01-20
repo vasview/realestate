@@ -1,0 +1,7 @@
+<div class="house_item_block">
+  <div class="house_item_cover">
+    <%= image_tag rs.header_image.variant(resize_to_fit: [100, 100]) %>
+  </div>
+  <div class="house_item_title"><%= rs.real_estate_type %> <%= rs.number_of_rooms %></div>
+  <div class="house_item_price"><%= rs.requested_price %></div>
+</div>

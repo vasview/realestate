@@ -1,0 +1,138 @@
+<%= form_with(model: real_estate, id: 'house_form', class: 'house_form') do |form| %>
+  <% if real_estate.errors.any? %>
+    <div style="color: red" class="error_explanation">
+      <h2><%= pluralize(real_estate.errors.count, "error") %> prohibited this real_estate from being saved:</h2>
+
+      <ul>
+        <% real_estate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table cellpadding="5" class="order_table">
+    <tr>
+      <td>
+        <%= form.label :title, 'Заголовок объявления' %>
+      </td>
+      <td colspan='3'>
+        <%= form.text_field :title, required: true %>
+      </td>
+    </tr>
+    <tr>
+      <td>Объект недвижимости</td>
+      <td  colspan='3'>
+        <%= form.radio_button :real_estate_type, "appartment", checked: true, class: "realestate_type_radio" %>
+        <%= form.label :real_estate_type_appartment, "Квартира" %>
+        <%= form.radio_button :real_estate_type, "house", class: "realestate_type_radio" %>
+        <%= form.label :real_estate_type_house, "Дом" %>
+        <%= form.radio_button :real_estate_type, "office", class: "realestate_type_radio" %>
+        <%= form.label :real_estate_type_office, "Офис" %>
+        <%= form.radio_button :real_estate_type_other, "other", class: "realestate_type_radio" %>
+        <%= form.label :real_estate_type, "Другое" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :city_id, 'Город' %>
+      </td>
+      <td  colspan='3'>
+        <%= form.collection_select :city_id, City.order(:name), :id, :name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :address, 'Адрес' %>
+      </td>
+      <td colspan='3'>
+        <%= form.text_field :address, required: true %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :number_of_rooms, 'Ко-во комнат' %>
+      </td>
+      <td>
+        <%= form.number_field :number_of_rooms, in: 1..10, step: 1, value: 1, required: true %>
+      </td>
+      <td>
+        <%= form.label :number_of_levels, 'Ко-во этажей' %>
+      <td>
+        <%= form.number_field :number_of_levels, in: 1..10, step: 1, value: 1, required: true %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :property_level, 'Ваш этаж' %>
+      <td>
+        <%= form.number_field :property_level, in: 1..10, step: 1, value: 1, required: true %>
+      </td>
+      <td>
+        <%= form.label :area, 'Площадь' %>
+      </td>
+      <td>
+        <%= form.number_field :area, in: 1.0..1000.0, step: 1.0, value: 1.0, required: true %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :requested_price, "Запрашиваемая цена", required: true %>
+      </td>
+      <td>
+        <%= form.number_field :requested_price, in: 1.0..10000000.0, step: 1.0, value: 1000.0, required: true %>
+      </td>
+    </tr>
+    <tr>
+      <td>Материал стен</td>
+      <td colspan='3'>
+        <%= form.radio_button :wall_material, "brick", checked: true, class: "delivery_option_radio" %>
+        <%= form.label :wall_material_brick, "Кирпич" %>
+        <%= form.radio_button :wall_material, "concrete", class: "delivery_option_radio" %>
+        <%= form.label :wall_material_concrete, "Монолит" %>
+        <%= form.radio_button :wall_material, "wood", class: "delivery_option_radio" %>
+        <%= form.label :wall_material_wood, "Дерево" %>
+        <%= form.radio_button :wall_material, "other_material", class: "delivery_option_radio" %>
+        <%= form.label :wall_material_other_material, "Другое" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :header_image, "Основное фото" %>
+      </td>
+      <td colspan='3'>
+        <%= form.file_field :header_image %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :pictures, "Другие фото" %>
+      </td>
+      <td colspan='3'>
+        <%= form.file_field :pictures, multiple: true %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form.label :description, 'Дополнительная информация' %>
+      </td>
+      <td colspan='3'>
+        <%= form.text_area :description, size: "50x4", placeholder: "Введите дополнительную информацию..." %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <%= form.label :personal_data_processing, "Ознакомлен с условиями обработки личных данных" %>
+        <%= form.check_box :personal_data_processing, required: true %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= form.submit value: 'Сохранить', class: "button_bg_green" %>
+      </td>
+      <td colspan="2">
+        <%= form.submit value: 'Сбросить', type: "reset", class: "button_bg_white_action" %>
+      </td>
+    </tr>
+  </table>
+<% end %>
