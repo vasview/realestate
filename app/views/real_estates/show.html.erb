@@ -6,13 +6,13 @@
       <% @real_estate.pictures.each do |picture| %>
         <% if picture.variable? %>
           <div class="rs_item_foto"><%= image_tag picture.variant(resize_to_fit: [400, 400]) %></div>
-        <% elseif upload.previewable? %>
+        <% elsif picture.previewable? %>
           <div class="rs_item_foto"><%= image_tag picture.preview(resize_to_fit: [400, 400]) %></div>
         <% end %>
       <% end %>
     </div>
     <div class="rs_item_desc">
-        <h2 class="rs_item_subtitle"><%= @real_estate.real_estate_type %></h2>
+        <h2 class="rs_item_subtitle"><%= I18n.t(@real_estate.real_estate_type) %></h2>
         <p><%= @real_estate.title %></p>
       </div>
     <div class="rs_item_location">
@@ -38,7 +38,7 @@
           <td><%= @real_estate.property_level %></td>
           <td><%= @real_estate.number_of_levels %></td>
           <td></td>
-          <td><%= @real_estate.wall_material %></td>
+          <td><%= I18n.t(@real_estate.wall_material) %></td>
           <td><%= @real_estate.requested_price %></td>
         </tr>
       </table>
@@ -47,6 +47,6 @@
 </div>
 <div class="rs_actions_wrapper">
   <div class="rs_actions">
-    <%= button_to "Назад в поиск", real_estates_path, class: 'btn_big_white' %>
+    <%= link_to 'Назад к списку', real_estates_path, class: "btn_big_white" %>
   </div>
 </div>

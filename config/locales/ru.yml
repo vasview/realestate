@@ -1,0 +1,19 @@
+ru:
+  activerecord:
+    enums:
+      real_estate:
+        real_estate_type:
+          appartment: "Квартира"
+          house: "Дом"
+          office: "Офис"
+          other: "Другое"
+
+  appartment: "Квартира"
+  house: "Дом"
+  office: "Офис"
+  other: "Другое"
+
+  brick: "кирпич"
+  concrete: "монолит"
+  wood: "дерево"
+  other_material: "другое"

@@ -4,7 +4,7 @@
       <div class="result_realestate">
         <div class="result_item_image"><%= image_tag rs.header_image.variant(resize_to_fit: [100, 100]) %></div>
         <div class="result_item_desc">
-          <h2><%= rs.real_estate_type %></h2>
+          <h2><%= I18n.t(rs.real_estate_type) %></h2>
           <p><%= rs.title %></p>
         </div>
       </div>

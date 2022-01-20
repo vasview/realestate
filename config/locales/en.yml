@@ -30,4 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    enums:
+      real_estate:
+        real_estate_type:
+          appartment: "Appartment"
+          house: "House"
+          office: "Office"
+          other: "Other"
+
+  appartment: "Appartment"
+  house: "House"
+  office: "Office"
+  other: "Other"
+
+  brick: "brick"
+  concrete: "concrete"
+  wood: "wood"
+  other_material: "other"
+
